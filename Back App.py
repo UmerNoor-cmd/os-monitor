@@ -13,7 +13,8 @@ def get_system_data():
     """
     # Gather CPU usage
     cpu_usage = psutil.cpu_percent(percpu=True)
-    
+    avg_cpu_usage = sum(cpu_usage) / len(cpu_usage)  # Calculate average CPU usage
+
     # Gather memory usage
     memory = psutil.virtual_memory()
     memory_data = {
@@ -40,6 +41,7 @@ def get_system_data():
 
     return {
         'cpu': cpu_usage,
+        'avg_cpu': avg_cpu_usage,  # Include average CPU usage
         'memory': memory_data,
         'processes': processes,
         'disk': disk_data
@@ -56,24 +58,24 @@ def get_static_data():
 def send_realtime_data():
     """
     Function to send real-time data continuously to the client every second.
-    This function is now not used for automatic emitting but can be used if needed.
     """
     while True:
         data_to_emit = get_system_data()  # Gather system data
-        print("Sending real-time data...")  # Debug log
-        socketio.emit('update', data_to_emit)  # Emit the data to the client
+        print(f"Real-time Data: {data_to_emit}")  # Debug log
+
+        # Emit the full system data
+        socketio.emit('update', data_to_emit)
+
         time.sleep(1)  # Adjust update frequency
 
 @socketio.on('connect')
 def handle_connect():
     """
-    Handle client connection by sending a success message and real-time data.
+    Handle client connection by sending a success message.
     """
     print("Client connected")
-    data_to_send = get_system_data()  # Gather system data
-    data_to_send['message'] = 'Connection successful'  # Add the success message
-    socketio.emit('update', data_to_send)  # Emit the data to the client
-    print("Real-time data sent to client.")
+    socketio.emit('connection_success', {'message': 'Connection successful'})
+    print("Connection success message sent to client.")
 
 @socketio.on('request_update')
 def handle_request_update():
@@ -82,7 +84,9 @@ def handle_request_update():
     """
     print("Received request for system update")
     data_to_send = get_system_data()  # Gather system data
-    socketio.emit('update', data_to_send)  # Emit the data to the client
+
+    # Emit the full system data
+    socketio.emit('update', data_to_send)
     print("Real-time data sent in response to request.")
 
 @socketio.on('disconnect')
@@ -94,4 +98,5 @@ def handle_disconnect():
 
 if __name__ == '__main__':
     # Start the Flask app and SocketIO server
+    socketio.start_background_task(send_realtime_data)  # Start real-time data emission
     socketio.run(app, debug=True)

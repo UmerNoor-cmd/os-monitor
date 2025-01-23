@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap');
+
+.speed-number {
+    font-family: 'Orbitron', sans-serif; /* Replace with your desired font */
+    font-size: 32px; /* Adjust the font size */
+    font-weight: bold;
+    color: #fff; /* Optional: Change the color */
+    text-align: center; /* Optional: Align the text */
+}
+.mbps-memory {
+    position: absolute;
+    top: 240px; /* Adjust based on desired position */
+    left: 123px; /* Adjust based on desired position */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #86879D;
+    text-align: center;
+}
+
+#speed-number-memory {
+    position: absolute;
+    top: 170px; /* Adjust based on desired position */
+    left: 10px; /* Adjust based on desired position */
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+body {
+    background-color: #0A0D20;
+    height: 100vh;
+    background: radial-gradient(
+      at 25% 20%, 
+      hsla(210, 62%, 8%, 0.96), 
+      hsla(232, 52%, 8%, 1)
+    );
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .speedometr {
+    position: relative;
+    max-width: 350px;
+  }
+  
+  .speed {
+    width: 400px;
+    height: 342px;
+  }
+  
+  .line {
+    transform-origin: 180px 180px;
+    transition: transform 0.5s ease-out;
+  }
+  
+  .metka {
+    stroke: #fff;
+    stroke-width: 5;
+  }
+  
+  .number {
+    fill: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    opacity: 0.8;
+  }
+  
+  .speed-number {
+    color: #fff;
+    font-family: 'Tulpen One', cursive;
+    font-size: 82px;
+    font-weight: 400;
+    text-align: center;
+    position: absolute;
+    top: 240px;
+    width: 100%;
+  }
+  
+  #butanim {
+    width: 10rem;
+    border: 2px solid #6EFDF3;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: absolute;
+    left: calc(50% - 5rem);
+    bottom: -5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 3rem;
+    color: #6EFDF3;
+    border-radius: 3rem;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 250ms ease-out;
+  }
+  
+  .mbps {
+    text-align: center;
+    font-size: 18px;
+    color: #86879D;
+    width: 100%;
+  }
+  
+  .mbps svg {
+    vertical-align: top;
+  }
+  
+  
