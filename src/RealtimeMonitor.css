@@ -1,16 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap');
 
 .speed-number {
-    font-family: 'Orbitron', sans-serif; /* Replace with your desired font */
-    font-size: 32px; /* Adjust the font size */
+    font-family: 'Orbitron', sans-serif;
+    font-size: 32px;
     font-weight: bold;
-    color: #fff; /* Optional: Change the color */
-    text-align: center; /* Optional: Align the text */
+    color: #fff;
+    text-align: center;
 }
+
 .mbps-memory {
     position: absolute;
-    top: 240px; /* Adjust based on desired position */
-    left: 123px; /* Adjust based on desired position */
+    top: 240px;
+    left: 123px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #86879D;
+    text-align: center;
+}
+
+.mbps-disk {
+    position: absolute;
+    top: 245px;
+    left: 135px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #86879D;
+    text-align: center;
+}
+
+.mbps-process {
+    position: absolute;
+    top: 200px;
+    left: 145px;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     color: #86879D;
@@ -19,8 +40,30 @@
 
 #speed-number-memory {
     position: absolute;
-    top: 170px; /* Adjust based on desired position */
-    left: 10px; /* Adjust based on desired position */
+    top: 170px;
+    left: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+#speed-number-disk {
+    position: absolute;
+    top: 170px;
+    left: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+#speed-number-process {
+    position: absolute;
+    top: 170px;
+    left: 10px;
     font-family: 'Orbitron', sans-serif;
     font-size: 18px;
     font-weight: bold;
@@ -32,48 +75,49 @@ body {
     background-color: #0A0D20;
     height: 100vh;
     background: radial-gradient(
-      at 25% 20%, 
-      hsla(210, 62%, 8%, 0.96), 
-      hsla(232, 52%, 8%, 1)
+        at 25% 20%,
+        hsla(210, 62%, 8%, 0.96),
+        hsla(232, 52%, 8%, 1)
     );
     font-family: 'Open Sans', sans-serif;
-  }
-  
-  .center {
+}
+
+.center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-  
-  .speedometr {
+}
+
+.speedometr {
     position: relative;
     max-width: 350px;
-  }
-  
-  .speed {
+    transition: filter 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.speed {
     width: 400px;
     height: 342px;
-  }
-  
-  .line {
+}
+
+.line {
     transform-origin: 180px 180px;
     transition: transform 0.5s ease-out;
-  }
-  
-  .metka {
+}
+
+.metka {
     stroke: #fff;
     stroke-width: 5;
-  }
-  
-  .number {
+}
+
+.number {
     fill: #fff;
     font-weight: 700;
     font-size: 16px;
     opacity: 0.8;
-  }
-  
-  .speed-number {
+}
+
+.speed-number {
     color: #fff;
     font-family: 'Tulpen One', cursive;
     font-size: 82px;
@@ -82,9 +126,9 @@ body {
     position: absolute;
     top: 240px;
     width: 100%;
-  }
-  
-  #butanim {
+}
+
+#butanim {
     width: 10rem;
     border: 2px solid #6EFDF3;
     -webkit-appearance: none;
@@ -104,17 +148,53 @@ body {
     cursor: pointer;
     outline: none;
     transition: background-color 250ms ease-out;
-  }
-  
-  .mbps {
-    text-align: center;
+}
+
+.mbps {
+    position: absolute;
+    top: 300px;
+    left: 120px;
     font-size: 18px;
     color: #86879D;
     width: 100%;
-  }
-  
-  .mbps svg {
+}
+
+.mbps svg {
     vertical-align: top;
-  }
-  
-  
+}
+
+/* Glow effect for CPU Speedometer */
+.cpu-speedometer .speedometr:hover {
+    filter: drop-shadow(0 0 10px rgba(6, 175, 253, 0.7)) 
+            drop-shadow(0 0 20px rgba(6, 175, 253, 0.5)) 
+            drop-shadow(0 0 30px rgba(6, 175, 253, 0.3));
+    transform: scale(1.02);
+    transition: filter 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Glow effect for Memory Speedometer */
+.memory-speedometer .speedometr:hover {
+    filter: drop-shadow(0 0 10px rgba(170, 66, 3, 0.7)) 
+            drop-shadow(0 0 20px rgba(170, 66, 3, 0.5)) 
+            drop-shadow(0 0 30px rgba(170, 66, 3, 0.3));
+    transform: scale(1.02);
+    transition: filter 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Glow effect for Disk Speedometer */
+.disk-speedometer .speedometr:hover {
+    filter: drop-shadow(0 0 10px rgba(241, 229, 12, 0.7)) 
+            drop-shadow(0 0 20px rgba(241, 229, 12, 0.5)) 
+            drop-shadow(0 0 30px rgba(241, 229, 12, 0.3));
+    transform: scale(1.02);
+    transition: filter 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Glow effect for Processes Speedometer */
+.processes-speedometer .speedometr:hover {
+    filter: drop-shadow(0 0 10px rgba(168, 17, 238, 0.7)) 
+            drop-shadow(0 0 20px rgba(174, 28, 211, 0.5)) 
+            drop-shadow(0 0 30px rgba(155, 29, 228, 0.3));
+    transform: scale(1.02);
+    transition: filter 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
