@@ -3,17 +3,17 @@
 Make sure you have python and node js installed
 
 #dependinces for NodeJs
-'npm install react@18.2.0 react-dom@18.2.0 react-scripts@5.0.1'
-'npm install web-vitals'
-'npm install socket.io-client'
+`npm install react@18.2.0 react-dom@18.2.0 react-scripts@5.0.1`
+`npm install web-vitals`
+`npm install socket.io-client`
 
 ### Run the Python File in the Back make sure all the libraries are installed
 
 **Note: these are all the libraries used.**
 
-'pip install flask'
-'pip install psutil'
-'pip install flask flask-socketio psutil eventlet'
+`pip install flask`
+`pip install psutil`
+`pip install flask flask-socketio psutil eventlet`
 
 
 ## Available Scripts
