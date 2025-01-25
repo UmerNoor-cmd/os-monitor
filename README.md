@@ -1,3 +1,5 @@
+`https://github.com/UmerNoor-cmd/os-monitor.git`
+
 # Getting Started With Running the Os-Monitor-App
 
 Make sure you have python and node js installed
